@@ -25,7 +25,7 @@ def reduce_row(row, block_id:int):
     block_time = str(row[3].strftime("%H:%M:%S"))
     id = row[7]
     duration = str ( datetime.timedelta(seconds=int(row[8])) )
-    return [ f"{prev_date_time}", f"{day_date} {block_time}", id, duration, "*", str(block_id) ]
+    return [ f"{prev_date_time}", f"{day_date} {block_time}", f"{id}.ts", duration, "*", str(block_id) ]
 
 
 def convert_xlsx(filename):
