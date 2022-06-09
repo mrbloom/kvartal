@@ -42,7 +42,7 @@ def convert_xlsx(filename):
        now = datetime.datetime.now()
 
        for (i,block) in enumerate(blocks):
-           blockid = int(now.strftime("%y%m%d")) * 1000 + i + 1
+           blockid = int(now.strftime("%y%m%d%d")) * 10000 + i + 1
 
            for row in block:
                writer.writerow(reduce_row(row,blockid))
