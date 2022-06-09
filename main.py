@@ -39,10 +39,11 @@ def convert_xlsx(filename):
     csvfilename = "Kvartal-" + filedate + ".csv"
     with open(csvfilename, 'w', newline='') as csvfile:
        writer = csv.writer(csvfile, delimiter=';')
-       now = datetime.datetime.now()
+
+       intdate = int(filedate.replace(".",""))
 
        for (i,block) in enumerate(blocks):
-           blockid = int(now.strftime("%y%m%d%d")) * 10000 + i + 1
+           blockid = intdate * 1000 + i + 1
 
            for row in block:
                writer.writerow(reduce_row(row,blockid))
